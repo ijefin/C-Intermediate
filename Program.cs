@@ -1,36 +1,36 @@
 ﻿using bytebank.Conta;
-using bytebank.Cliente;
+using bytebank.DadosCliente;
 
 Console.WriteLine("Bem vindo ao Bytebank");
 
-DadosUsuario cliente1 = new();
-cliente1.nome_titular = "Jefferson Lucas Gomes";
-cliente1.cpf = "179.437.907-07";
-cliente1.profissao = "Software Developer";
+Cliente jeff = new("Jefferson Lucas Gomes", "179,437,907-07", "Software Developer");
 
-ContaCorrente conta1 = new();
-conta1.titular = cliente1;
-conta1.conta = "10123-x";
-conta1.agencia = 10;
-conta1.nome_agencia = "Dev Tech";
-conta1.Saldo = 25000;
+ContaCorrente contaJeff = new(jeff, "10123-x", 10, "Dev Tech", 25000);
 
-DadosUsuario cliente2 = new();
-cliente2.nome_titular = "Anna Luiza Carvalho";
-cliente2.cpf = "055.892.176-01";
-cliente2.profissao = "Biomédica";
+Cliente anna = new("Anna Luiza Carvalho", "055.892.176-01", "Biomédica");
 
-ContaCorrente conta2 = new();
-conta2.titular = cliente2;
-conta2.conta = "10125-x";
-conta2.agencia = 10;
-conta2.nome_agencia = "Dev Tech";
-conta2.Saldo = 60000;
+ContaCorrente contaAnna = new(anna, "10871-5", 49, "BioTech", 50000);
 
-ContaCorrente conta3 = new();
-conta3.Saldo = 30;
+Cliente pedro = new("Pedro Machado Gomes", "552-885-098-59", "Analista de Sistemas");
 
-Console.WriteLine(conta3.Saldo);
-conta1.MostraDados();
+ContaCorrente contaPedro = new(pedro, "10589-x", 50, "Dev Tech", 8000);
+
+Cliente joao = new("João Marcelo", "985.512.564.59", "Engenheiro de software");
+
+ContaCorrente contaJoao = new(joao, "10594-x", 51, "DevTech", 5000);
+
+Cliente marcelo = new("Marcelo", "559.502.950-40", "Engenheiro");
+
+ContaCorrente contaMarcelo = new(marcelo, "10594-x", 52, "Marceneiro", 9000);
+
+contaJeff.MostraDados();
 Console.WriteLine("==============================");
-conta2.MostraDados();
+contaAnna.MostraDados();
+Console.WriteLine("==============================");
+contaPedro.MostraDados();
+Console.WriteLine("==============================");
+contaJoao.MostraDados();
+Console.WriteLine("==============================");
+Console.WriteLine($"Total de CONTAS CORRENTES cadastradas no sistema: {ContaCorrente.TotalDeContas}");
+Console.WriteLine("==============================");
+Console.WriteLine($"Total de CLIENTES cadastrados no sistema: {Cliente.TotalDeClientes}");

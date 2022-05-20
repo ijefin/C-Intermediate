@@ -4,19 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bytebank.Cliente
+namespace bytebank.DadosCliente
 {
-    public class DadosUsuario
+    public class Cliente
     {
-        public string nome_titular;
-        public string cpf;
-        public string profissao;
+        public string Nome { get; set; }
+        public string Cpf { get; set; }
+        public string Profissao { get; set; }
+        public static int TotalDeClientes { get; set; }
 
         public void TrasDadosUsuario()
         {
-            Console.WriteLine($"O nome do titular é: {nome_titular}");
-            Console.WriteLine($"O CPF do usuário é: {cpf}");
-            Console.WriteLine($"{nome_titular}, sua profissão é {profissao}");
+            Console.WriteLine($"O nome do titular é: {Nome}");
+            Console.WriteLine($"O CPF do usuário é: {Cpf}");
+            Console.WriteLine($"{Nome}, sua profissão é {Profissao}");
+        }
+
+        public Cliente(string nome, string cpf, string profissao)
+        {
+            Nome = nome;
+            Cpf = cpf;
+            Profissao = profissao;
+            TotalDeClientes += 1;
+
         }
     }
 
